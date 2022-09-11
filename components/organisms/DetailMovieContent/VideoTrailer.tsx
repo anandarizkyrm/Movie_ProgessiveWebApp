@@ -1,15 +1,16 @@
 interface VideoTrailerProps {
-    trailer: {
-        key: string;
-    }
+  trailer: {
+    key: string;
+  };
 }
-export default function VideoTrailer(props: VideoTrailerProps) {
-  const { trailer } = props;
-
+export default function VideoTrailer({ trailer }: VideoTrailerProps) {
   const onClick = () => {
     document.querySelector('.overlay')?.classList.remove('active');
     const videoTrailer = document.querySelector<any>('.video-trailer')!;
-    videoTrailer.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+    videoTrailer.contentWindow.postMessage(
+      '{"event":"command","func":"stopVideo","args":""}',
+      '*'
+    );
   };
 
   return (

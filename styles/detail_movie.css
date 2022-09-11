@@ -116,11 +116,14 @@
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
   place-items: center;
+  overflow: hidden;
 }
+
 
 .overlay.active {
   display: grid;
 }
+
 
 .overlay .trailer-wrapper {
   position: relative;
@@ -153,6 +156,8 @@
 
 .overlay.active .trailer-wrapper .video-trailer {
   display: block;
+  overflow: hidden;
+ 
 }
 
 .trailer-box button .fa-times {

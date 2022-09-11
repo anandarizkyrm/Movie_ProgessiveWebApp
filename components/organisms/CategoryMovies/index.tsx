@@ -12,11 +12,16 @@ export default function CategoryMovies() {
 
   const getCategoriesAPI = useCallback(async () => {
     const response: any = await getCategories();
-    const genres = response.genres.filter((genre: CategoryTypes) => genre.name !== 'Documentary' && genre.name !== 'Romance' && genre.name !== 'Drama');
+    const genres = response.genres.filter(
+      (genre: CategoryTypes) =>
+        genre.name !== 'Documentary' &&
+        genre.name !== 'Romance' &&
+        genre.name !== 'Drama'
+    );
     setCategories(genres);
   }, []);
 
-  const getCategoryMoviesAPI = useCallback(async (idc) => {
+  const getCategoryMoviesAPI = useCallback(async (idc: number) => {
     const response: any = await getCategoryMovies(idc);
     setMovies(response.results);
   }, []);
@@ -42,7 +47,7 @@ export default function CategoryMovies() {
           <button
             key={category.id}
             type="button"
-            className={`btn ${active === category.name ? 'btn-active' : ''}`}
+            className={`btn ${active === category.name ? 'btn-active' : null}`}
             onClick={() => {
               setActive(category.name);
               return setId(category.id);

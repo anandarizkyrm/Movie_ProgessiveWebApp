@@ -25,7 +25,7 @@ interface GetServerSideProps {
   };
 }
 
-export async function getServerSideProps({ params } : GetServerSideProps) {
+export async function getServerSideProps({ params }: GetServerSideProps) {
   const { keyword } = params;
   const response: any = await getResultMovies(keyword);
   const movies = response.results;

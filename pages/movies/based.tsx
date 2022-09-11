@@ -2,8 +2,6 @@ import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import MovieItem from '../../components/molecules/MovieItem';
-import Footer from '../../components/organisms/Footer';
-import Navbar from '../../components/organisms/Navbar';
 import { getMovies } from '../../services/data_api';
 import { DetailMovieTypes } from '../../services/data_types';
 
@@ -15,9 +13,7 @@ interface BasedProps {
 }
 
 export default function based(props: BasedProps) {
-  const {
-    movies, totalPages, q, p,
-  } = props;
+  const { movies, totalPages, q, p } = props;
 
   const [query, setQuery] = useState(q);
   const [pageActive, setPageActive] = useState(p);
@@ -32,8 +28,10 @@ export default function based(props: BasedProps) {
 
   return (
     <>
-      <Navbar />
-      <div className="section-movies container-xxxl my-5" style={{ minHeight: '100vh' }}>
+      <div
+        className="section-movies container-xxxl my-5"
+        style={{ minHeight: '100vh' }}
+      >
         <div className="mb-5">
           <h3 className="fw-bold">Movies</h3>
           <select
@@ -89,12 +87,11 @@ export default function based(props: BasedProps) {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 }
 
-export async function getServerSideProps({ query }:any) {
+export async function getServerSideProps({ query }: any) {
   const { q, page } = query;
   const p = Number(page);
   const response: any = await getMovies(q, p);

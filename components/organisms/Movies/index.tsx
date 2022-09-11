@@ -7,6 +7,7 @@ import MovieItem from '../../molecules/MovieItem';
 export default function Movies() {
   const [query, setQuery] = useState('popular');
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getMoviesAPI = useCallback(async (param) => {
     const response: any = await getMovies(param);
@@ -34,9 +35,7 @@ export default function Movies() {
         </div>
         <div className="align-self-end">
           <Link href={`/movies/based?q=${query}&page=1`}>
-            <a className="view-all">
-              View All
-            </a>
+            <a className="view-all">View All</a>
           </Link>
         </div>
       </div>

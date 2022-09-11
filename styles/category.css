@@ -30,6 +30,11 @@
   box-shadow: 0 0 10px rgba(111, 87, 235, 0.7);
 }
 
+
+.section-category .button-wrapper .btn:hover {
+  box-shadow: 0 0 10px rgba(111, 87, 235, 0.7);
+}
+
 .section-category .button-wrapper .btn-active {
   background-color: rgb(105, 77, 248);
   box-shadow: 0 0 10px rgba(111, 87, 235, 0.7);

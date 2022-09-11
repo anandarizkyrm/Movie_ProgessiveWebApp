@@ -2,8 +2,7 @@ import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import MovieItem from '../../components/molecules/MovieItem';
-import Footer from '../../components/organisms/Footer';
-import Navbar from '../../components/organisms/Navbar';
+
 import { getTrendingMovies } from '../../services/data_api';
 import { DetailMovieTypes } from '../../services/data_types';
 
@@ -14,11 +13,7 @@ interface TrendingProps {
   q: string;
 }
 
-export default function trending(props: TrendingProps) {
-  const {
-    movies, totalPages, q, p,
-  } = props;
-
+export default function trending({ movies, totalPages, q, p }: TrendingProps) {
   const [query, setQuery] = useState(q);
   const [pageActive, setPageActive] = useState(p);
   const router = useRouter();
@@ -32,21 +27,27 @@ export default function trending(props: TrendingProps) {
 
   return (
     <>
-      <Navbar />
-      <div className="section-trending container-xxxl my-5" style={{ minHeight: '100vh' }}>
+      <div
+        className="section-trending container-xxxl my-5"
+        style={{ minHeight: '100vh' }}
+      >
         <div className="d-flex flex-column flex-sm-row align-items-start gap-3 my-5">
           <h3 className="fw-bold">Trending Movies</h3>
           <div className="button-wrapper d-flex">
             <button
               type="button"
-              className={`btn btn-trending ${query === 'week' ? 'btn-active' : ''}`}
+              className={`btn btn-trending ${
+                query === 'week' ? 'btn-active' : ''
+              }`}
               onClick={() => setQuery('week')}
             >
               This Week
             </button>
             <button
               type="button"
-              className={`btn btn-trending ${query === 'day' ? 'btn-active' : ''}`}
+              className={`btn btn-trending ${
+                query === 'day' ? 'btn-active' : ''
+              }`}
               onClick={() => setQuery('day')}
             >
               Today
@@ -96,16 +97,15 @@ export default function trending(props: TrendingProps) {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 }
 
 interface GetServerSideProps {
-    query: {
-        q: string,
-        page: string
-    }
+  query: {
+    q: string;
+    page: string;
+  };
 }
 
 export async function getServerSideProps({ query }: GetServerSideProps) {

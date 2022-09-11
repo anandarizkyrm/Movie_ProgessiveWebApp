@@ -4,8 +4,6 @@ import ReactPaginate from 'react-paginate';
 import { getCategories, getCategoryMovies } from '../../services/data_api';
 import { CategoryTypes, DetailMovieTypes } from '../../services/data_types';
 import MovieItem from '../../components/molecules/MovieItem';
-import Footer from '../../components/organisms/Footer';
-import Navbar from '../../components/organisms/Navbar';
 
 interface CategoryProps {
   movies: DetailMovieTypes[];
@@ -17,9 +15,7 @@ interface CategoryProps {
 }
 
 export default function category(props: CategoryProps) {
-  const {
-    movies, categories, totalPages, id, p, catActive,
-  } = props;
+  const { movies, categories, totalPages, id, p, catActive } = props;
 
   const [active, setActive] = useState(catActive);
   const [idc, setIdc] = useState(id);
@@ -35,8 +31,10 @@ export default function category(props: CategoryProps) {
 
   return (
     <>
-      <Navbar />
-      <div className="section-category container-xxxl my-5" style={{ minHeight: '100vh' }}>
+      <div
+        className="section-category container-xxxl my-5"
+        style={{ minHeight: '100vh' }}
+      >
         <div className="my-5">
           <h3 className="fw-bold">Browse by category</h3>
           <div className="button-wrapper mb-4">
@@ -98,17 +96,16 @@ export default function category(props: CategoryProps) {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 }
 
 interface GetServerSideProps {
-    query: {
-        idc: string,
-        page: string,
-        cat: string
-    }
+  query: {
+    idc: string;
+    page: string;
+    cat: string;
+  };
 }
 
 export async function getServerSideProps({ query }: GetServerSideProps) {
@@ -117,7 +114,12 @@ export async function getServerSideProps({ query }: GetServerSideProps) {
   const p = Number(page);
 
   const dataCategories: any = await getCategories();
-  const categories = dataCategories?.genres?.filter((genre: CategoryTypes) => genre.name !== 'Documentary' && genre.name !== 'Romance' && genre.name !== 'Drama');
+  const categories = dataCategories?.genres?.filter(
+    (genre: CategoryTypes) =>
+      genre.name !== 'Documentary' &&
+      genre.name !== 'Romance' &&
+      genre.name !== 'Drama'
+  );
 
   const dataMovies: any = await getCategoryMovies(id, p);
   const movies = dataMovies.results;

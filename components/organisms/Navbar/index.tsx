@@ -13,9 +13,6 @@ export default function Navbar() {
             Movie
           </a>
         </Link>
-        <div className="d-block d-lg-none ms-auto">
-          <ButtonTheme />
-        </div>
         <ButtonToggler />
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 pt-1">
@@ -31,10 +28,16 @@ export default function Navbar() {
             </li>
           </ul>
           <FormSearch />
-          <div className="d-none d-lg-block">
-            <ButtonTheme />
-          </div>
         </div>
+      </div>
+      <div
+        style={{
+          position: 'fixed',
+          bottom: 20,
+          right: 20,
+        }}
+      >
+        <ButtonTheme />
       </div>
     </nav>
   );
