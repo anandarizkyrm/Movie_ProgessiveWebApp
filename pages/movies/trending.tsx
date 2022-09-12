@@ -36,7 +36,7 @@ export default function trending({ movies, totalPages, q, p }: TrendingProps) {
             <button
               type="button"
               className={`btn btn-trending ${
-                query === 'week' ? 'btn-active' : ''
+                query === 'week' ? 'btn-active' : null
               }`}
               onClick={() => setQuery('week')}
             >
