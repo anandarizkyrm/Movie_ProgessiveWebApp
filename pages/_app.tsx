@@ -34,9 +34,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta
           name="og:title"
-          content="WhatMovie | Looking for information about your favorite movie"
+          content="IMovie | Looking for information about your favorite movie"
         />
-        <meta name="og:url" content="https://jarh-whatmovie.vercel.app" />
+        {/* <meta name="og:url" content="https://jarh-imovie.vercel.app" /> */}
         <meta
           name="og:image"
           content="https://cdn-icons-png.flaticon.com/512/1038/1038100.png"

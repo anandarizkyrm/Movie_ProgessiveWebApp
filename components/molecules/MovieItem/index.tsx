@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { CategoryTypes } from '../../../services/data_types';
 import { useState } from 'react';
+import { CategoryTypes } from '../../../services/data_types';
+
 interface MovieItemProps {
   id: number;
   poster: string;
@@ -29,12 +30,12 @@ export default function MovieItem({
   const [categories, setCategory] = useState('');
 
   if (genres.length > 0) {
-    let categories = genres
+    const newCategories = genres
       .map((genre: any) => genre.name)
       .splice(0, 2)
       .join(' | ');
 
-    setCategory(categories);
+    setCategory(newCategories);
   }
 
   if (type === 'backdrop') {
@@ -51,11 +52,13 @@ export default function MovieItem({
             <div className="movie-info d-flex flex-row justify-content-between">
               <div>
                 <h6 className="fw-bold">{title}</h6>
-                <p className="my-1 my-md-2">{`${year.toLocaleDateString('en', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}`}</p>
+                <p className="my-1 my-md-2">
+                  {`${year.toLocaleDateString('en', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}`}
+                </p>
                 <div className="d-flex align-items-center">
                   <span>
                     <i className="fa fa-star" aria-hidden />
@@ -83,11 +86,13 @@ export default function MovieItem({
               {genres.length > 0 ? (
                 <p className="my-1">{`${year.getFullYear()} • ${categories}`}</p>
               ) : (
-                <p className="my-1">{`${year.toLocaleDateString('en', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}`}</p>
+                <p className="my-1">
+                  {`${year.toLocaleDateString('en', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}`}
+                </p>
               )}
               <div className="d-flex align-items-center">
                 <i className="fa fa-star" aria-hidden />

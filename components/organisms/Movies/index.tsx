@@ -7,7 +7,6 @@ import MovieItem from '../../molecules/MovieItem';
 export default function Movies() {
   const [query, setQuery] = useState('popular');
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const getMoviesAPI = useCallback(async (param) => {
     const response: any = await getMovies(param);

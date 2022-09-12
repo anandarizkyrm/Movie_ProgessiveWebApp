@@ -1,5 +1,5 @@
 :root {
-  --primaryColor: rgb(111, 87, 235);
+  --primaryColor: rgb(255, 8, 8);
   --secondaryColor: rgb(248, 249, 250);
   --bgColor: rgb(255, 255, 255);
   --textColor: rgb(0, 0, 0);
@@ -21,7 +21,7 @@ body {
 }
 
 .dark-mode {
-  --primaryColor: rgb(111, 87, 235);
+  --primaryColor: rgb(255, 8, 8);
   --bgColor: rgb(30, 29, 43);
   --textColor: rgb(255, 255, 255);
   --secondaryColor: rgb(37, 39, 54);
@@ -78,7 +78,7 @@ a {
 }
 
 .pagination .active .page-link:focus {
-  border-color: rgba(111, 87, 235, 0.7);
+  border-color: rgba(235, 87, 87, 0.7);
   box-shadow: 0 0 0 3px rgba(111, 87, 235, 0.3);
   outline: none;
 }

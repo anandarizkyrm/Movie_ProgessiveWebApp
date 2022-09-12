@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="container container-xxxl">
         <Link href="/">
           <a className="navbar-brand fs-3">
-            <span className="text-purple fw-bold">What</span>
+            <span className="text-purple fw-bold">I</span>
             Movie
           </a>
         </Link>

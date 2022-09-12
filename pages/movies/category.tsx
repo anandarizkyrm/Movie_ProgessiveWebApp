@@ -14,9 +14,14 @@ interface CategoryProps {
   catActive: string;
 }
 
-export default function category(props: CategoryProps) {
-  const { movies, categories, totalPages, id, p, catActive } = props;
-
+export default function category({
+  movies,
+  categories,
+  totalPages,
+  id,
+  p,
+  catActive,
+}: CategoryProps) {
   const [active, setActive] = useState(catActive);
   const [idc, setIdc] = useState(id);
   const [pageActive, setPageActive] = useState(p);

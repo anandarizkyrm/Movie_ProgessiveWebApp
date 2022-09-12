@@ -20,8 +20,12 @@ interface DetailMovieProps {
   };
 }
 
-export default function DetailMovie(props: DetailMovieProps) {
-  const { movie, similarMovies, trailer, credits } = props;
+export default function DetailMovie({
+  movie,
+  similarMovies,
+  trailer,
+  credits,
+}: DetailMovieProps) {
   const rootImg = process.env.NEXT_PUBLIC_IMG;
 
   return (

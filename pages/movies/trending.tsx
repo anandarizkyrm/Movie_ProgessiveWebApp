@@ -2,7 +2,6 @@ import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import MovieItem from '../../components/molecules/MovieItem';
-
 import { getTrendingMovies } from '../../services/data_api';
 import { DetailMovieTypes } from '../../services/data_types';
 
@@ -46,7 +45,7 @@ export default function trending({ movies, totalPages, q, p }: TrendingProps) {
             <button
               type="button"
               className={`btn btn-trending ${
-                query === 'day' ? 'btn-active' : ''
+                query === 'day' ? 'btn-active' : null
               }`}
               onClick={() => setQuery('day')}
             >

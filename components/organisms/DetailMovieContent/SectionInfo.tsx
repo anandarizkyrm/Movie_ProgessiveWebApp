@@ -1,17 +1,26 @@
 import CurrencyFormat from 'react-currency-format';
-import { CreditsTypes, CrewCastTypes, DetailMovieTypes } from '../../../services/data_types';
+import {
+  CreditsTypes,
+  CrewCastTypes,
+  DetailMovieTypes,
+} from '../../../services/data_types';
 
 interface SectionInfoProps {
-    movie: DetailMovieTypes;
-    credits: CreditsTypes;
+  movie: DetailMovieTypes;
+  credits: CreditsTypes;
 }
 
-export default function SectionInfo(props: SectionInfoProps) {
-  const { movie, credits } = props;
+export default function SectionInfo({ movie, credits }: SectionInfoProps) {
   const year = new Date(movie.release_date);
   const rootImg = process.env.NEXT_PUBLIC_IMG;
 
-  const crew = credits.crew.filter((person: CrewCastTypes) => person.job === 'Director' || person.job === 'Story' || person.job === 'Creator' || person.job === 'Writer');
+  const crew = credits.crew.filter(
+    (person: CrewCastTypes) =>
+      person.job === 'Director' ||
+      person.job === 'Story' ||
+      person.job === 'Creator' ||
+      person.job === 'Writer'
+  );
   const cast = credits.cast.sort();
 
   return (
@@ -32,7 +41,13 @@ export default function SectionInfo(props: SectionInfoProps) {
         </div>
         <div>
           <h5 className="fw-bold">Release date</h5>
-          <p>{year.toLocaleDateString('en', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+          <p>
+            {year.toLocaleDateString('en', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })}
+          </p>
         </div>
         <div>
           <h5 className="fw-bold">Duration</h5>
@@ -48,11 +63,25 @@ export default function SectionInfo(props: SectionInfoProps) {
         </div>
         <div>
           <h5 className="fw-bold">Budget</h5>
-          <p><CurrencyFormat value={movie.budget} displayType="text" prefix="$" thousandSeparator /></p>
+          <p>
+            <CurrencyFormat
+              value={movie.budget}
+              displayType="text"
+              prefix="$"
+              thousandSeparator
+            />
+          </p>
         </div>
         <div>
           <h5 className="fw-bold">Revenue</h5>
-          <p><CurrencyFormat value={movie.revenue} displayType="text" prefix="$" thousandSeparator /></p>
+          <p>
+            <CurrencyFormat
+              value={movie.revenue}
+              displayType="text"
+              prefix="$"
+              thousandSeparator
+            />
+          </p>
         </div>
       </div>
       <div className="info-overview">
@@ -67,7 +96,11 @@ export default function SectionInfo(props: SectionInfoProps) {
               if (person.profile_path !== null) {
                 return (
                   <div key={person.credit_id} className="cast-box">
-                    <img src={`${rootImg}/w92${person.profile_path}`} alt={person.name} className="img-cast" />
+                    <img
+                      src={`${rootImg}/w92${person.profile_path}`}
+                      alt={person.name}
+                      className="img-cast"
+                    />
                     <p>{person.original_name}</p>
                   </div>
                 );

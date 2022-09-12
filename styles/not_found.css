@@ -15,5 +15,5 @@
 .not-found .btn-outline-purple:hover {
   color: rgb(255, 255, 255);
   background-color: var(--primaryColor);
-  box-shadow: 0 0 10px rgba(111, 87, 235, 0.7);
+  box-shadow: 0 0 10px var(--primaryColor);
 }

@@ -6,8 +6,7 @@ interface DiscoverItemProps {
   id: number;
 }
 
-export default function DiscoverItem(props: DiscoverItemProps) {
-  const { id } = props;
+export default function DiscoverItem({ id }: DiscoverItemProps) {
   const [data, setData] = useState({
     id: 0,
     backdrop_path: '',
@@ -54,9 +53,9 @@ export default function DiscoverItem(props: DiscoverItemProps) {
                 <span>
                   <i className="fa fa-star" aria-hidden />
                 </span>
-                <span className="ms-2">{`${
-                  data.vote_average
-                } (${data.vote_count.toLocaleString()})`}</span>
+                <span className="ms-2">
+                  {`${data.vote_average} (${data.vote_count.toLocaleString()})`}
+                </span>
               </div>
             </div>
             <span className="mt-2">{`${data.runtime} Min`}</span>

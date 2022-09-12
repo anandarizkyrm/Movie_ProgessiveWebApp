@@ -12,9 +12,7 @@ interface BasedProps {
   q: string;
 }
 
-export default function based(props: BasedProps) {
-  const { movies, totalPages, q, p } = props;
-
+export default function based({ movies, totalPages, q, p }: BasedProps) {
   const [query, setQuery] = useState(q);
   const [pageActive, setPageActive] = useState(p);
   const router = useRouter();

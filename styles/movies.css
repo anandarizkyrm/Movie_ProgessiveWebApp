@@ -4,7 +4,7 @@
 }
 
 .section-movies select:focus {
-  border-color: rgba(111, 87, 235, 0.7);
-  box-shadow: 0 0 0 3px rgba(111, 87, 235, 0.3);
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 0 3px rgba(235, 87, 87, 0.3);
   outline: 0 none;
 }

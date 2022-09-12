@@ -1,7 +1,6 @@
-import React from 'react';
+import { useRouter } from 'next/router';
 import Footer from '../organisms/Footer';
 import Navbar from '../organisms/Navbar';
-import { useRouter } from 'next/router';
 
 function Layout({ children }: any) {
   const router = useRouter();
